@@ -1,17 +1,34 @@
-import Menu from "./components/Menu";
+import { useState } from "react";
 import Home from "./components/Home";
+import Menu from "./components/Menu";
+import { useDebounce } from "./hooks/useDebounce";
 import "./styles/app.scss";
-import CommonService from "./services/Common";
 
 function App() {
-  CommonService.findData("true").then((resp) => {
-    console.log("resp", resp);
-  });
-  
+  const [showSearchContainer, setShowSearchContainer] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
+
+  const { data, isLoading } = useDebounce(searchVal, 1000);
+
+  console.log("data", data);
+  console.log("isLoading", isLoading);
+
+  const handleShowSearchContainer = () => {
+    setShowSearchContainer(!showSearchContainer);
+  };
+
+  const onSearch = (val: string) => {
+    setSearchVal(val);
+  };
+
   return (
     <div className="App">
-      <Menu />
-      <Home />
+      <Menu
+        showSearchContainer={showSearchContainer}
+        handleShowSearchContainer={handleShowSearchContainer}
+        onSearch={onSearch}
+      />
+      <Home data={data} />
     </div>
   );
 }
