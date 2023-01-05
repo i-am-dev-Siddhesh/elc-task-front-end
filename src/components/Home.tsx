@@ -49,6 +49,7 @@ const Home = ({ data, isLoading }: IProps) => {
                   <p>{item.price}</p>
                   <p>{item.name}</p>
                   <p>{item.about}</p>
+                  <img src={item.picture} alt={item.name}></img>
                   <div>
                     {item.tags.map((tag) => (
                       <p>{tag}</p>
