@@ -10,9 +10,6 @@ function App() {
 
   const { data, isLoading } = useDebounce(searchVal, 1000);
 
-  console.log("data", data);
-  console.log("isLoading", isLoading);
-
   const handleShowSearchContainer = () => {
     setShowSearchContainer(!showSearchContainer);
   };

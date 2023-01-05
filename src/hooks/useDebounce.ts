@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CommonService from "../services/Common";
-import { IData } from "../services/Common/types";
+import { IData } from "../types/index";
 
 export const useDebounce = (value: string, milliSeconds: number) => {
   const [debouncedValue, setDebouncedValue] = useState<IData[]>([]);
