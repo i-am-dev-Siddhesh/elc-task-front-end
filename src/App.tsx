@@ -25,7 +25,7 @@ function App() {
         handleShowSearchContainer={handleShowSearchContainer}
         onSearch={onSearch}
       />
-      <Home data={data} />
+      <Home data={data} isLoading={isLoading} />
     </div>
   );
 }
